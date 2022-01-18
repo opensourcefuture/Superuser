@@ -32,6 +32,7 @@
 #include <sys/stat.h>
 #include <stdarg.h>
 #include <sys/types.h>
+#include <arpa/inet.h>
 
 #include "su.h"
 #include "utils.h"

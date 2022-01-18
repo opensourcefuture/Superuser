@@ -98,7 +98,7 @@ public class PolicyFragment extends ListContentFragment {
 
         setHasOptionsMenu(true);
 
-        TextView empty = (TextView)getLayoutInflater(savedInstanceState).inflate(R.layout.empty, null);
+        TextView empty = (TextView)getLayoutInflater().inflate(R.layout.empty, null);
         ((ViewGroup)view.findViewById(R.id.empty)).addView(empty);
         empty.setText(R.string.no_apps);
 

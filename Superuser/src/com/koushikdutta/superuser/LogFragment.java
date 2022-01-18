@@ -126,7 +126,7 @@ public class LogFragment extends BetterListFragment {
             logs = SuperuserDatabaseHelper.getLogs(getActivity(), up, -1);
         }
         else {
-            TextView empty = (TextView)getLayoutInflater(savedInstanceState).inflate(R.layout.empty, null);
+            TextView empty = (TextView)getLayoutInflater().inflate(R.layout.empty, null);
             ((ViewGroup)view.findViewById(R.id.empty)).addView(empty);
             empty.setText(R.string.no_logs);
             view.findViewById(R.id.policy_header).setVisibility(View.GONE);
