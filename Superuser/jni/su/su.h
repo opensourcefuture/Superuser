@@ -62,7 +62,8 @@
 #define REQUESTOR_DATA_PATH "/data/data/"
 #define REQUESTOR_FILES_PATH REQUESTOR_DATA_PATH REQUESTOR "/files"
 #define REQUESTOR_USER_PATH "/data/user/"
-#define REQUESTOR_CACHE_PATH "/dev/" REQUESTOR
+// #define REQUESTOR_CACHE_PATH "/dev/" REQUESTOR
+#define REQUESTOR_CACHE_PATH "/data/misc/" REQUESTOR
 #define REQUESTOR_DAEMON_PATH REQUESTOR_CACHE_PATH ".daemon"
 
 // there's no guarantee that the db or files are actually created named as such by

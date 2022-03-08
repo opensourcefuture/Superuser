@@ -701,7 +701,7 @@ int su_main(int argc, char *argv[], int need_client) {
      * set LD_LIBRARY_PATH if the linker has wiped out it due to we're suid.
      * This occurs on Android 4.0+
      */
-    setenv("LD_LIBRARY_PATH", "/vendor/lib:/system/lib", 0);
+    setenv("LD_LIBRARY_PATH", "/vendor/lib64:/system/lib64", 0);
 
     LOGD("su invoked.");
 
@@ -867,6 +867,7 @@ int su_main(int argc, char *argv[], int need_client) {
         deny(&ctx);
     }
 
+    LOGD("ctx.from.uid: %d, st.st_uid: %d", ctx.from.uid, st.st_uid);
     // always allow if this is the superuser uid
     // superuser needs to be able to reenable itself when disabled...
     if (ctx.from.uid == st.st_uid) {
@@ -893,6 +894,7 @@ int su_main(int argc, char *argv[], int need_client) {
     ctx.umask = umask(027);
 
     int ret = mkdir(REQUESTOR_CACHE_PATH, 0770);
+#if 0
     if (chown(REQUESTOR_CACHE_PATH, st.st_uid, st.st_gid)) {
         PLOGE("chown (%s, %ld, %ld)", REQUESTOR_CACHE_PATH, st.st_uid, st.st_gid);
         deny(&ctx);
@@ -902,6 +904,7 @@ int su_main(int argc, char *argv[], int need_client) {
         PLOGE("setgroups");
         deny(&ctx);
     }
+#endif
     if (setegid(st.st_gid)) {
         PLOGE("setegid (%lu)", st.st_gid);
         deny(&ctx);

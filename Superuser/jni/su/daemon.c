@@ -562,7 +562,7 @@ int connect_daemon(int argc, char *argv[], int ppid) {
         exit(-1);
     }
 
-    LOGD("connecting client %d", getpid());
+    LOGD("connecting client pid: %d, uid: %d", getpid(), uid);
 
     int mount_storage = getenv("MOUNT_EMULATED_STORAGE") != NULL;
 
